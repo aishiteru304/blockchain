@@ -6,7 +6,10 @@ export default function Update() {
   const storageLogin = JSON.parse(localStorage.getItem('login'))
   const loggedRef = useRef(storageLogin ?? {})
   const nameRef = useRef()
-  const ageRef = useRef()
+  const sexRef = useRef()
+  const dateRef = useRef()
+  const phoneRef = useRef()
+  const emailRef = useRef()
 
   const [contractAddress, setContractAddress] = useState('')
   const [abi, setAbi] = useState([])
@@ -39,16 +42,12 @@ export default function Update() {
   }, [abi, contractAddress])
 
   const handleUpdate = () => {
-    if (nameRef.current.value === '' || ageRef.current.value === '')
+    if (nameRef.current.value === '')
       alert("Không được để trống")
     else {
-      if (/^\d+$/.test(ageRef.current.value)) {
 
-        contractRef.current.methods.setAccountInfo(nameRef.current.value, parseInt(ageRef.current.value)).send({ from: loggedRef.current.account })
-          .then(() => window.location.href = "http://localhost:3000")
-
-      }
-      else alert('Tuổi phải là số nguyên')
+      contractRef.current.methods.setAccountInfo(nameRef.current.value, sexRef.current.value, dateRef.current.value, phoneRef.current.value, emailRef.current.value).send({ from: loggedRef.current.account, gas: 300000 })
+        .then(() => window.location.href = "/")
 
     }
 
@@ -59,7 +58,10 @@ export default function Update() {
       {loggedRef.current.state &&
         <div>
           <div ><input placeholder='name' className='updateInput' ref={nameRef}></input></div>
-          <div ><input placeholder='age' className='updateInput' ref={ageRef}></input></div>
+          <div ><input placeholder='sex' className='updateInput' ref={sexRef}></input></div>
+          <div ><input placeholder='dateOfBirth' className='updateInput' ref={dateRef}></input></div>
+          <div ><input placeholder='phoneNumber' className='updateInput' ref={phoneRef}></input></div>
+          <div ><input placeholder='email' className='updateInput' ref={emailRef}></input></div>
           <button className='btn btn-success' onClick={handleUpdate}>Cập nhật</button>
         </div>
       }

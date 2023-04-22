@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Web3 from 'web3'
 import { loadContract } from '../ConnectContract'
+
 export default function Informaion() {
 
   const storageLogin = JSON.parse(localStorage.getItem('login'))
@@ -28,11 +29,11 @@ export default function Informaion() {
       const contractFaucet = new web3.eth.Contract(abi, contractAddress)
       contractRef.current = contractFaucet
 
-      // contractRef.current.methods.setAccountInfo("name1", 23).send({ from: loggedRef.current.account })
-      //   .then(res => console.log(res))
-
       contractRef.current.methods.getAccountInfo().call({ from: loggedRef.current.account })
-        .then(res => setInfo(res))
+        .then(res => {
+          setInfo(res)
+
+        })
     }
   }, [abi, contractAddress])
 
@@ -42,8 +43,13 @@ export default function Informaion() {
         <div>
           {info[0] === '' ? <h1>Chưa cập nhật</h1> :
             <div>
-              <h1>Tên: {info[0]}</h1>
-              <h1>Tuổi: {info[1]}</h1>
+              <h1 className='d-flex'><p className='col-2'>Tên:</p> {info[0]}</h1>
+              <h1 className='d-flex'><p className='col-2'>Giới tính:</p> {info[1]}</h1>
+              <h1 className='d-flex'><p className='col-2'>Ngày Sinh:</p> {info[2]}</h1>
+              <h1 className='d-flex'><p className='col-2'>Số điện thoại:</p> {info[3]}</h1>
+              <h1 className='d-flex'><p className='col-2'>Email:</p> {info[4]}</h1>
+              <h1 className='d-flex'><p className='col-2'>HashCode:</p> {info[5]}</h1>
+
             </div>
           }
         </div>
