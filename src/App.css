@@ -86,3 +86,31 @@ a {
     font-size: 1.2rem;
     width: 200px;
 }
+
+.dateUpdate {
+    width: 233px;
+}
+
+.gender {
+    height: 32px;
+    font-size: 1.6rem;
+    border: solid 1px;
+    margin-left: 4px;
+    padding-bottom: 4px;
+}
+
+.selectDay {
+    height: 32px;
+    margin-top: 8px;
+    font-size: 1.4rem;
+    width: 80px;
+    line-height: 32px;
+    margin-left: 4px;
+}
+
+.react-datepicker__input-container input {
+    width: 140px;
+    padding-left: 4px;
+    border: solid 1px;
+    outline: none;
+}
