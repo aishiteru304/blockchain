@@ -85,7 +85,7 @@ function App() {
       const findAccount = accounts.find((account) => account.toLowerCase() === currentAccount)
       if (findAccount) {
 
-        //Yêu cầu server gửi token
+        // Yêu cầu server gửi token
         axios.post('http://localhost:8080/login', { username: findAccount })
           .then((res) => {
             localStorage.setItem('token', res.data.token)
