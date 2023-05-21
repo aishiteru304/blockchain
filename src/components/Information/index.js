@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Web3 from 'web3'
+import axios from 'axios'
 import { loadContract } from '../ConnectContract'
 
 export default function Informaion() {
@@ -29,11 +30,21 @@ export default function Informaion() {
       const contractFaucet = new web3.eth.Contract(abi, contractAddress)
       contractRef.current = contractFaucet
 
-      contractRef.current.methods.getAccountInfo().call({ from: loggedRef.current.account })
-        .then(res => {
-          setInfo(res)
+      const token = localStorage.getItem('token')
+      axios.get('http://localhost:8080/protected', { headers: { Authorization: `Bearer ${token}` } })
+        .then(() => {
+          contractRef.current.methods.getAccountInfo().call({ from: loggedRef.current.account })
+            .then(res => {
+              setInfo(res)
 
+            })
         })
+        .catch(() => {
+          alert("Bạn hãy đăng nhập lại")
+          window.location.href = '/'
+        })
+
+
     }
   }, [abi, contractAddress])
 
@@ -48,7 +59,6 @@ export default function Informaion() {
               <h1 className='d-flex'><p className='col-2'>Ngày Sinh:</p> {info[2]}</h1>
               <h1 className='d-flex'><p className='col-2'>Số điện thoại:</p> {info[3]}</h1>
               <h1 className='d-flex'><p className='col-2'>Email:</p> {info[4]}</h1>
-              <h1 className='d-flex'><p className='col-2'>HashCode:</p> {info[5]}</h1>
 
             </div>
           }

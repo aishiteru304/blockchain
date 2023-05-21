@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 
-export default function Update() {
+export default function Update({ props }) {
 
   const storageLogin = JSON.parse(localStorage.getItem('login'))
   const loggedRef = useRef(storageLogin ?? {})
@@ -58,8 +58,13 @@ export default function Update() {
       alert("Định dạng email không hợp lệ")
     else {
 
+
       contractRef.current.methods.setAccountInfo(nameRef.current.value, sex, birthday, phoneRef.current.value, emailRef.current.value).send({ from: loggedRef.current.account, gas: 300000 })
-        .then(() => window.location.href = "/")
+        .then(() => {
+          window.location.href = "/"
+          localStorage.removeItem('register')
+        })
+
 
     }
 
@@ -89,7 +94,8 @@ export default function Update() {
       {loggedRef.current.state &&
         <div>
           <div ><input placeholder='name' className='updateInput' ref={nameRef}></input></div>
-          <div ><input placeholder='sex' className='updateInput' readOnly value={sex}></input>
+          <div >
+            <input placeholder='sex' className='updateInput' readOnly value={sex}></input>
             <select id="gender" name="gender" className='gender' onChange={handleGenderChange}>
               <option value="male">Nam</option>
               <option value="female">Nữ</option>
@@ -105,7 +111,7 @@ export default function Update() {
           </div>
           <div ><input placeholder='phoneNumber' className='updateInput' ref={phoneRef}></input></div>
           <div ><input placeholder='email' className='updateInput' ref={emailRef}></input></div>
-          <button className='btn btn-success' onClick={handleUpdate}>Cập nhật</button>
+          <button className='btn btn-success' onClick={handleUpdate}>{props}</button>
         </div>
       }
     </div>

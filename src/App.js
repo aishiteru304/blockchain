@@ -6,9 +6,13 @@ import Information from './components/Information'
 import Update from './components/Update'
 import Web3 from 'web3';
 import { loadContract } from './components/ConnectContract';
-import CryptoJS from 'crypto-js';
+import axios from 'axios';
 
 function App() {
+
+  //Lưu trạng thái đăng kí
+  const storageRegister = JSON.parse(localStorage.getItem('register'))
+  const [isRegister, setIsRegister] = useState(storageRegister ?? false)
 
   //Lưu tên đăng nhập và trạng thái đăng nhập
   const storageLogin = JSON.parse(localStorage.getItem('login'))
@@ -63,6 +67,8 @@ function App() {
       //Nếu không tồn tại account mới => đăng xuất
       setIsLogout(true)
     }
+    setIsRegister(false)
+    localStorage.removeItem('register')
   })
 
   //Hàm đăng xuất
@@ -78,6 +84,14 @@ function App() {
     if (currentAccount) {
       const findAccount = accounts.find((account) => account.toLowerCase() === currentAccount)
       if (findAccount) {
+
+        //Yêu cầu server gửi token
+        axios.post('http://localhost:8080/login', { username: findAccount })
+          .then((res) => {
+            localStorage.setItem('token', res.data.token)
+          })
+
+
         loadContract('Faucet')
           .then(res => {
             const web3 = new Web3('http://localhost:7545')
@@ -86,13 +100,17 @@ function App() {
 
             contractFaucet.methods.getAccountInfo().call({ from: findAccount })
               .then(res => {
+
                 //Nếu account chưa có cập nhật thông tin
-                if (res[0] === "" && res[5] === "0x0000000000000000000000000000000000000000000000000000000000000000") {
+                if (res[0] === "") {
                   localStorage.setItem('login', JSON.stringify({ account: findAccount, state: true }))
-                  window.location.href = '/'
+                  localStorage.setItem('register', JSON.stringify(true))
+                  setIsRegister(true)
                 }
+
+
                 //Đã cập nhật thông tin
-                else if (res[5].split("0x")[1] === CryptoJS.SHA256(res[0] + res[1] + res[2] + res[3] + res[4]).toString()) {
+                else if (res[0]) {
                   localStorage.setItem('login', JSON.stringify({ account: findAccount, state: true }))
                   window.location.href = '/'
                 }
@@ -110,8 +128,6 @@ function App() {
 
         window.location.href = '/'
 
-
-
       }
     }
   }, [currentAccount, accounts])
@@ -125,6 +141,8 @@ function App() {
       }],
     });
   }
+
+
 
 
   return (
@@ -141,7 +159,7 @@ function App() {
               <Link to='/update' >Cập nhật</Link>
             </div>
             <div className='d-flex'>
-              {!loggedRef.current.state && <p className='cursorPointer'>Đăng kí</p>}
+              {/* {!loggedRef.current.state && <p className='cursorPointer'>Đăng kí</p>} */}
               {loggedRef.current.state && <p className='cursorPointer'>{loggedRef.current.account}</p>}
               {!loggedRef.current.state && <p className='ms-5 cursorPointer' onClick={handleLogin}>Đăng nhập</p>}
               {loggedRef.current.state && <p className='ms-5 cursorPointer' onClick={handleChange}>Thay đổi</p>}
@@ -150,10 +168,20 @@ function App() {
         </div>
       </div>
 
+      {isRegister &&
+        <div className='register'>
+          <div className='registerContent'>
+
+            <Update props="Đăng kí" />
+
+          </div>
+        </div>
+      }
+
       <Routes>
 
         <Route exact path='/information' element={<Information />} />
-        <Route exact path='/update' element={<Update />} />
+        <Route exact path='/update' element={<Update props="Cập nhật" />} />
         <Route exact path='/' element={<div></div>} />
       </Routes>
     </div>

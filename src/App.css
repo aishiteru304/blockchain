@@ -84,12 +84,12 @@ a {
     line-height: 32px;
     padding-left: 8px;
     font-size: 1.2rem;
-    width: 200px;
+    /* width: 200px; */
 }
 
-.dateUpdate {
+/* .dateUpdate {
     width: 233px;
-}
+} */
 
 .gender {
     height: 32px;
@@ -113,4 +113,24 @@ a {
     padding-left: 4px;
     border: solid 1px;
     outline: none;
+}
+
+/* Phần register */
+.register {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerContent {
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    padding: 32px;
 }

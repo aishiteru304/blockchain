@@ -8,7 +8,6 @@ contract Faucet {
         string dateOfBirth;
         string phoneNumber;
         string email;
-        bytes32 hashCode;
     }
 
     mapping(address => AccountInfo) public accounts;
@@ -20,17 +19,12 @@ contract Faucet {
         string memory _phoneNumber,
         string memory _email
     ) public {
-        string memory stringCode = string(
-            abi.encodePacked(_name, _sex, _dateOfBirth, _phoneNumber, _email)
-        );
-        bytes32 _hashCode = sha256(bytes(stringCode));
         accounts[msg.sender] = AccountInfo(
             _name,
             _sex,
             _dateOfBirth,
             _phoneNumber,
-            _email,
-            _hashCode
+            _email
         );
     }
 
@@ -42,8 +36,7 @@ contract Faucet {
             string memory,
             string memory,
             string memory,
-            string memory,
-            bytes32
+            string memory
         )
     {
         return (
@@ -51,8 +44,7 @@ contract Faucet {
             accounts[msg.sender].sex,
             accounts[msg.sender].dateOfBirth,
             accounts[msg.sender].phoneNumber,
-            accounts[msg.sender].email,
-            accounts[msg.sender].hashCode
+            accounts[msg.sender].email
         );
     }
 }

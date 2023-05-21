@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.4.0",
     "crypto-js": "^4.1.1",
     "react": "^18.2.0",
     "react-datepicker": "^4.11.0",
@@ -43,5 +44,12 @@
   "devDependencies": {
     "resolve-url-loader": "^5.0.0",
     "source-map-loader": "^4.0.1"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
 }
