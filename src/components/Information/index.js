@@ -18,7 +18,7 @@ export default function Informaion() {
       loadContract('Faucet')
         .then(res => {
           setAbi(res.abi)
-          setContractAddress(res.networks[5777].address)
+          setContractAddress(res.networks[1337].address)
         })
     }
 
@@ -26,7 +26,7 @@ export default function Informaion() {
 
   useEffect(() => {
     if (abi.length) {
-      const web3 = new Web3('http://localhost:7545')
+      const web3 = new Web3('http://127.0.0.1:30303')
       const contractFaucet = new web3.eth.Contract(abi, contractAddress)
       contractRef.current = contractFaucet
 

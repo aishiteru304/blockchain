@@ -28,3 +28,73 @@
 20:27:30.181382 db@open done T·135.9972ms
 20:35:33.657624 db@close closing
 20:35:33.658143 db@close done T·519.3µs
+=============== May 22, 2023 (+07) ===============
+22:36:19.468916 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+22:36:19.544560 version@stat F·[2] S·285B[285B] Sc·[0.50]
+22:36:19.545151 db@open opening
+22:36:19.545699 journal@recovery F·1
+22:36:19.549472 journal@recovery recovering @6
+22:36:19.615526 memdb@flush created L0@8 N·1 S·162B "loc..seq,v5":"loc..seq,v5"
+22:36:19.617587 version@stat F·[3] S·447B[447B] Sc·[0.75]
+22:36:19.727561 db@janitor F·5 G·0
+22:36:19.727561 db@open done T·182.4095ms
+23:40:53.837035 db@close closing
+23:40:53.837035 db@close done T·0s
+=============== May 22, 2023 (+07) ===============
+23:41:13.367384 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:41:13.367906 version@stat F·[3] S·447B[447B] Sc·[0.75]
+23:41:13.368418 db@open opening
+23:41:13.368418 journal@recovery F·1
+23:41:13.370442 journal@recovery recovering @9
+23:41:13.414918 memdb@flush created L0@11 N·1 S·162B "loc..seq,v7":"loc..seq,v7"
+23:41:13.416376 version@stat F·[4] S·609B[609B] Sc·[1.00]
+23:41:13.515833 db@janitor F·6 G·0
+23:41:13.515833 db@open done T·147.4152ms
+23:41:13.515833 table@compaction L0·3 -> L1·0 S·486B Q·8
+23:41:13.548513 table@build created L1@14 N·1 S·162B "loc..seq,v7":"loc..seq,v7"
+23:41:13.548513 version@stat F·[1 1] S·285B[123B 162B] Sc·[0.25 0.00]
+23:41:13.582032 table@compaction committed F-2 S-324B Ke·0 D·2 T·65.6753ms
+23:41:13.582032 table@remove removed @8
+23:41:13.582547 table@remove removed @5
+23:43:06.861400 db@close closing
+23:43:06.862398 db@close done T·998.2µs
+=============== May 22, 2023 (+07) ===============
+23:43:28.572376 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:43:28.573379 version@stat F·[1 1] S·285B[123B 162B] Sc·[0.25 0.00]
+23:43:28.573379 db@open opening
+23:43:28.573379 journal@recovery F·1
+23:43:28.576365 journal@recovery recovering @12
+23:43:28.606782 memdb@flush created L0@15 N·1 S·162B "loc..seq,v9":"loc..seq,v9"
+23:43:28.610473 version@stat F·[2 1] S·447B[285B 162B] Sc·[0.50 0.00]
+23:43:28.708673 db@janitor F·6 G·1
+23:43:28.708673 db@janitor removing table-11
+23:43:28.708673 db@open done T·135.294ms
+23:45:09.600881 db@close closing
+23:45:09.601390 db@close done T·0s
+=============== May 22, 2023 (+07) ===============
+23:45:31.848927 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:45:31.849924 version@stat F·[2 1] S·447B[285B 162B] Sc·[0.50 0.00]
+23:45:31.849924 db@open opening
+23:45:31.849924 journal@recovery F·1
+23:45:31.852153 journal@recovery recovering @16
+23:45:31.887555 memdb@flush created L0@18 N·1 S·162B "loc..seq,v11":"loc..seq,v11"
+23:45:31.889787 version@stat F·[3 1] S·609B[447B 162B] Sc·[0.75 0.00]
+23:45:31.988557 db@janitor F·6 G·0
+23:45:31.988557 db@open done T·138.6325ms
+=============== May 22, 2023 (+07) ===============
+23:59:36.178563 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:59:36.179123 version@stat F·[3 1] S·609B[447B 162B] Sc·[0.75 0.00]
+23:59:36.179123 db@open opening
+23:59:36.179123 journal@recovery F·1
+23:59:36.180811 journal@recovery recovering @19
+23:59:36.445889 memdb@flush created L0@21 N·1 S·162B "loc..seq,v13":"loc..seq,v13"
+23:59:36.447661 version@stat F·[4 1] S·771B[609B 162B] Sc·[1.00 0.00]
+23:59:37.008553 db@janitor F·7 G·0
+23:59:37.008553 db@open done T·829.4295ms
+23:59:37.008553 table@compaction L0·3 -> L1·1 S·648B Q·14
+23:59:37.096713 table@build created L1@24 N·1 S·162B "loc..seq,v13":"loc..seq,v13"
+23:59:37.096713 version@stat F·[1 1] S·285B[123B 162B] Sc·[0.25 0.00]
+23:59:37.211735 table@compaction committed F-3 S-486B Ke·0 D·3 T·203.1823ms
+23:59:37.214926 table@remove removed @18
+23:59:37.214926 table@remove removed @15
+23:59:37.214926 table@remove removed @14

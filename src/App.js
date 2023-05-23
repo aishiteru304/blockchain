@@ -30,9 +30,9 @@ function App() {
 
   //Hàm kết nối với ganache
   useEffect(() => {
-    const web3 = new Web3('http://localhost:7545')
+    const web3 = new Web3('http://127.0.0.1:30303')
 
-    web3.eth.getAccounts()
+    web3.eth.personal.getAccounts()
       .then(accounts => {
         setAccounts(accounts)
       })
@@ -94,8 +94,8 @@ function App() {
 
         loadContract('Faucet')
           .then(res => {
-            const web3 = new Web3('http://localhost:7545')
-            const contractFaucet = new web3.eth.Contract(res.abi, res.networks[5777].address)
+            const web3 = new Web3('http://127.0.0.1:30303')
+            const contractFaucet = new web3.eth.Contract(res.abi, res.networks[1337].address)
 
 
             contractFaucet.methods.getAccountInfo().call({ from: findAccount })

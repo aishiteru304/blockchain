@@ -28,3 +28,71 @@
 20:27:39.605014 db@open done T·134.9385ms
 20:35:35.049854 db@close closing
 20:35:35.050377 db@close done T·522.5µs
+=============== May 22, 2023 (+07) ===============
+22:36:27.926887 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+22:36:27.947136 version@stat F·[2] S·285B[285B] Sc·[0.50]
+22:36:27.947136 db@open opening
+22:36:27.947136 journal@recovery F·1
+22:36:27.950319 journal@recovery recovering @6
+22:36:28.005824 memdb@flush created L0@8 N·1 S·162B "loc..seq,v5":"loc..seq,v5"
+22:36:28.007890 version@stat F·[3] S·447B[447B] Sc·[0.75]
+22:36:28.106889 db@janitor F·5 G·0
+22:36:28.106889 db@open done T·159.7527ms
+23:40:55.166205 db@close closing
+23:40:55.166735 db@close done T·529.8µs
+=============== May 22, 2023 (+07) ===============
+23:41:20.292391 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:41:20.292913 version@stat F·[3] S·447B[447B] Sc·[0.75]
+23:41:20.292913 db@open opening
+23:41:20.292913 journal@recovery F·1
+23:41:20.295029 journal@recovery recovering @9
+23:41:20.332323 memdb@flush created L0@11 N·1 S·162B "loc..seq,v7":"loc..seq,v7"
+23:41:20.334359 version@stat F·[4] S·609B[609B] Sc·[1.00]
+23:41:20.432555 db@janitor F·6 G·0
+23:41:20.433063 db@open done T·139.6427ms
+23:41:20.433072 table@compaction L0·3 -> L1·0 S·486B Q·8
+23:41:20.465006 table@build created L1@14 N·1 S·162B "loc..seq,v7":"loc..seq,v7"
+23:41:20.465006 version@stat F·[1 1] S·285B[123B 162B] Sc·[0.25 0.00]
+23:41:20.498654 table@compaction committed F-2 S-324B Ke·0 D·2 T·64.4807ms
+23:41:20.498654 table@remove removed @8
+23:41:20.498654 table@remove removed @5
+23:43:08.443374 db@close closing
+23:43:08.443508 db@close done T·134.2µs
+=============== May 22, 2023 (+07) ===============
+23:43:37.018748 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:43:37.019273 version@stat F·[1 1] S·285B[123B 162B] Sc·[0.25 0.00]
+23:43:37.019273 db@open opening
+23:43:37.019273 journal@recovery F·1
+23:43:37.020960 journal@recovery recovering @12
+23:43:37.061687 memdb@flush created L0@15 N·1 S·162B "loc..seq,v9":"loc..seq,v9"
+23:43:37.063330 version@stat F·[2 1] S·447B[285B 162B] Sc·[0.50 0.00]
+23:43:37.162755 db@janitor F·6 G·1
+23:43:37.162755 db@janitor removing table-11
+23:43:37.162755 db@open done T·143.4819ms
+=============== May 22, 2023 (+07) ===============
+23:45:39.529956 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:45:39.539935 version@stat F·[2 1] S·447B[285B 162B] Sc·[0.50 0.00]
+23:45:39.539944 db@open opening
+23:45:39.539944 journal@recovery F·1
+23:45:39.542651 journal@recovery recovering @16
+23:45:39.572131 memdb@flush created L0@18 N·1 S·162B "loc..seq,v11":"loc..seq,v11"
+23:45:39.574000 version@stat F·[3 1] S·609B[447B 162B] Sc·[0.75 0.00]
+23:45:39.672617 db@janitor F·6 G·0
+23:45:39.672617 db@open done T·132.6724ms
+=============== May 22, 2023 (+07) ===============
+23:59:42.166029 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:59:42.167025 version@stat F·[3 1] S·609B[447B 162B] Sc·[0.75 0.00]
+23:59:42.167025 db@open opening
+23:59:42.167025 journal@recovery F·1
+23:59:42.168025 journal@recovery recovering @19
+23:59:42.254485 memdb@flush created L0@21 N·1 S·162B "loc..seq,v13":"loc..seq,v13"
+23:59:42.254996 version@stat F·[4 1] S·771B[609B 162B] Sc·[1.00 0.00]
+23:59:42.498519 db@janitor F·7 G·0
+23:59:42.498519 db@open done T·331.4931ms
+23:59:42.498519 table@compaction L0·3 -> L1·1 S·648B Q·14
+23:59:42.597470 table@build created L1@24 N·1 S·162B "loc..seq,v13":"loc..seq,v13"
+23:59:42.597470 version@stat F·[1 1] S·285B[123B 162B] Sc·[0.25 0.00]
+23:59:42.657568 table@compaction committed F-3 S-486B Ke·0 D·3 T·159.0494ms
+23:59:42.657736 table@remove removed @18
+23:59:42.657736 table@remove removed @15
+23:59:42.658247 table@remove removed @14
